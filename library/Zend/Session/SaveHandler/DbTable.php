@@ -353,9 +353,8 @@ class Zend_Session_SaveHandler_DbTable
         } else {
             $data[$this->_lifetimeColumn] = $this->_lifetime;
 
-            if ($this->insert(array_merge($this->_getPrimary($id, self::PRIMARY_TYPE_ASSOC), $data))) {
-                $return = true;
-            }
+            $this->insert(array_merge($this->_getPrimary($id, self::PRIMARY_TYPE_ASSOC), $data));
+            $return = true;
         }
 
         return $return;
